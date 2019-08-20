@@ -20,15 +20,15 @@ import tensorflow as tf
 from alexnet import AlexNet
 from datagenerator import ImageDataGenerator
 from datetime import datetime
-from tensorflow.contrib.data import Iterator
+from tensorflow.data import Iterator
 
 """
 Configuration Part.
 """
 
 # Path to the textfiles for the trainings and validation set
-train_file = '/path/to/train.txt'
-val_file = '/path/to/val.txt'
+train_file = 'path/to/train.txt'
+val_file = 'path/to/val.txt'
 
 # Learning params
 learning_rate = 0.01
@@ -53,7 +53,9 @@ Main Part of the finetuning Script.
 
 # Create parent path if it doesn't exist
 if not os.path.isdir(checkpoint_path):
-    os.mkdir(checkpoint_path)
+    os.mkdir('tmp')
+    os.mkdir('tmp/finetune_alexnet/')
+    os.mkdir('tmp/finetune_alexnet/checkpoints')
 
 # Place data loading and preprocessing on the cpu
 with tf.device('/cpu:0'):
