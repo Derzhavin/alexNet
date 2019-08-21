@@ -1,8 +1,0 @@
-images/dog.png 0
-images/dog2.png 0
-images/laska.png 1
-images/llama.jpeg 2
-images/poodle.png 3
-images/quail227.JPEG 4
-images/sealion.jpeg 5
-images/zebra.jpeg 6

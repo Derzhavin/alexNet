@@ -27,14 +27,18 @@ Configuration Part.
 """
 
 # Path to the textfiles for the trainings and validation set
-train_file = 'path/to/train.txt'
-val_file = 'path/to/val.txt'
+train_file = 'tables/train.txt'
+val_file = 'tables/val.txt'
 
 # Learning params
-learning_rate = 0.01
-num_epochs = 10
+learning_rate = 0.00001
+num_epochs = 1000
 batch_size = 128
-
+"""
+    0.0009 - broke in 1-st epoch
+    0.0001 - broke on 4-th epoch
+    0.00001 - got over 20 epochs
+"""
 # Network params
 dropout_rate = 0.5
 num_classes = 2
@@ -142,7 +146,7 @@ train_batches_per_epoch = int(np.floor(tr_data.data_size/batch_size))
 val_batches_per_epoch = int(np.floor(val_data.data_size / batch_size))
 
 # Start Tensorflow session
-with tf.Session() as sess:
+with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
 
     # Initialize all variables
     sess.run(tf.global_variables_initializer())
