@@ -15,12 +15,13 @@ contact: f.kratzert(at)gmail.com
 import os
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from alexnet import AlexNet
 from datagenerator import ImageDataGenerator
 from datetime import datetime
-from tensorflow.data import Iterator
+from tensorflow.compat.v1.data import Iterator
 
 """
 Configuration Part.
@@ -31,8 +32,8 @@ train_file = 'tables/train.txt'
 val_file = 'tables/val.txt'
 
 # Learning params
-learning_rate = 0.00001
-num_epochs = 1000
+learning_rate = 0.0001
+num_epochs = 100
 batch_size = 128
 """
     0.0009 - broke in 1-st epoch

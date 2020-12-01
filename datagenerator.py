@@ -4,10 +4,11 @@
 
 """Containes a helper class for image input pipelines in tensorflow."""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
-from tensorflow.data import Dataset
+from tensorflow.compat.v1.data import Dataset
 from tensorflow.python.framework import dtypes
 from tensorflow.python.framework.ops import convert_to_tensor
 

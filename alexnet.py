@@ -21,7 +21,8 @@ folder as this file:
 @author: Frederik Kratzert (contact: f.kratzert(at)gmail.com)
 """
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 
@@ -98,7 +99,8 @@ class AlexNet(object):
         'biases') we need a special load function
         """
         # Load the weights into memory
-        weights_dict = np.load(self.WEIGHTS_PATH,encoding='bytes').item()
+        np.load1 = lambda *a, **k: np.load(*a, allow_pickle=True, **k)
+        weights_dict = np.load1(self.WEIGHTS_PATH,encoding='bytes').item()
 
         # Loop over all layer names stored in the weights dict
         for op_name in weights_dict:

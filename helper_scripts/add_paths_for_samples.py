@@ -1,15 +1,15 @@
 """ train - 60%, val - 10%, test - 30%"""
 import  os
 
-classes = ['fish', 'salamander', 'spider', 'frog', 'snake', 'scorpion', 'coala', 'dog', 'snail', 'fly']
+classes = ['bee', 'wasp']
 
 os.chdir('../sample')
 
-path_to_train = '/home/data-scientist/PycharmProjects/finetune_alexnet_with_tensorflow/tables/train.txt'
-path_to_val =  '/home/data-scientist/PycharmProjects/finetune_alexnet_with_tensorflow/tables/val.txt'
-path_to_test = '/home/data-scientist/PycharmProjects/finetune_alexnet_with_tensorflow/tables/test.txt'
+path_to_train = '/home/denis/PycharmProjects/alexNet/tables/train.txt'
+path_to_val =  '/home/denis/PycharmProjects/alexNet/tables/val.txt'
+path_to_test = '/home/denis/PycharmProjects/alexNet/tables/test.txt'
 
-for dir in os.listdir():
+for dir in os.listdir('.'):
     paths_to_img_files = list(map(lambda x:  os.path.join('sample',os.path.join(dir,x)), os.listdir(dir)))
 
     dir_size = len(paths_to_img_files)
