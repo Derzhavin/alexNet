@@ -15,14 +15,14 @@ if __name__ == '__main__':
         val_size = int(train_size * 0.5)
         test_size = dir_size - train_size - val_size
 
-        with open(path_to_train, 'w') as f:
+        with open(path_to_train, 'a') as f:
             for i in range(train_size):
                 f.write(paths_to_img_files[i] + ' ' + str(classes.index(dir)) + '\n')
 
-        with open(path_to_val, 'w') as f:
+        with open(path_to_val, 'a') as f:
             for i in range(train_size, dir_size - val_size):
                 f.write(paths_to_img_files[i] + ' ' + str(classes.index(dir)) + '\n')
 
-        with open(path_to_test, 'w') as f:
+        with open(path_to_test, 'a') as f:
             for i in range(dir_size - val_size, dir_size):
                 f.write(paths_to_img_files[i] + ' ' + str(classes.index(dir)) + '\n')
